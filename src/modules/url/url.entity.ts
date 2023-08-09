@@ -2,15 +2,17 @@ import { Exclude } from 'class-transformer';
 import {
   Entity,
   Column,
-  PrimaryGeneratedColumn,
+  ObjectId,
+  ObjectIdColumn,
   UpdateDateColumn,
   CreateDateColumn,
 } from 'typeorm';
 
 @Entity('url')
 export class UrlEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Exclude()
+  @ObjectIdColumn()
+  id: ObjectId;
 
   @Column()
   urlCode: string;

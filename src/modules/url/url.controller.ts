@@ -38,7 +38,7 @@ export class UrlController {
     @Req() req: Request,
   ): Promise<UrlEntity> {
     const { baseUrl } = getURLComponentFromReq(req);
-    return this.service.shortenUrl(baseUrl, newData);
+    return await this.service.shortenUrl(baseUrl, newData);
   }
 
   @Put(':urlCode')
