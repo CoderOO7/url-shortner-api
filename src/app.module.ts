@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import configuration from './config/index';
 import { configValidationSchema } from './config/schema';
+import { UrlModule } from './modules/url/url.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { configValidationSchema } from './config/schema';
         configuration(configService),
       inject: [ConfigService],
     }),
+    UrlModule,
   ],
   controllers: [AppController],
   providers: [AppService],
