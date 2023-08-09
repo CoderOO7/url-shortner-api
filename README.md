@@ -9,17 +9,16 @@ redirects to the original URL
 1. - [x] API that’ll update an already existing short URL to point to another long URL
 1. - [x] API to delete the short URL
 1. - [x] API that takes in the short URL to display information about where the URL
-points to.
 
 ## TechStack
 
-* Backend: NestJS, MongoDB.
+- Backend: NestJS, MongoDB.
 
 ## Requirement
 
-* VSCode: If you want to take advantage of dev plugins.
-* Node v16.x.x
-* MongoDB
+- VSCode: If you want to take advantage of dev plugins.
+- Node v16.x.x
+- MongoDB
 
 > To prevent bugs project is locked to run only on Node v16.x+.
 > Recommended to use [NVM](https://github.com/creationix/nvm)
@@ -35,15 +34,131 @@ $ npm i
 ```
 
 This will install dependencies. The next step is to set `environment` variables. For this run below command
+
 ```bash
 $ cp .sample.env .env
 ```
+
 And then run this command from root directory.
+
 ```bash
 $ npm start
 ```
 
 It serve the project on http://localhost:3000
+
+## API Docmentation
+
+Import below json in postman collection.
+
+```json
+{
+  "info": {
+    "_postman_id": "d097e017-678d-499e-8fd5-81ad6c4aa598",
+    "name": "url-shortner",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "10812797"
+  },
+  "item": [
+    {
+      "name": "update url",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"longUrl\": \"https://www.dev.to\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:3000/U74LurBV4H"
+      },
+      "response": []
+    },
+    {
+      "name": "redirect url",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:3000/U74LurBV4H"
+      },
+      "response": []
+    },
+    {
+      "name": "get url info",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:3000/U74LurBV4H/info"
+      },
+      "response": []
+    },
+    {
+      "name": "delete url",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:3000/U74LurBV4H"
+      },
+      "response": []
+    },
+    {
+      "name": "Create Short Url",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"longUrl\": \"https://www.sdfsdf.com\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:3000/shorten"
+      },
+      "response": []
+    }
+  ]
+}
+```
 
 ## Contribution
 
